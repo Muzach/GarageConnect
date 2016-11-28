@@ -1,0 +1,13 @@
+{
+  "eventName": "SendOnNextO",
+  "url": "https://api.pushover.net/1/messages.json",
+  "requestType": "POST",
+  "query":
+  {
+    "user": "<user here>",
+    "token": "<token here>",
+    "title": "Notification Requested",
+    "message": "{{SPARK_EVENT_VALUE}}"
+  },
+  "mydevices": true
+}
