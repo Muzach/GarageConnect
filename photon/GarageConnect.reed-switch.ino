@@ -36,6 +36,7 @@ void setup()
         LastDoorStatus=DoorState();
 
         Particle.publish("DoorStatus", "Setup Complete", PRIVATE);
+        publishDoorState();
     }
 
 void loop()
@@ -53,6 +54,7 @@ void loop()
                     {
                         LastDoorStatus=DoorIsOpen;
                         Particle.publish("DoorStatus", "Door Changed to Open", PRIVATE);
+                        publishDoorState();
                     }
                     if (DoorOpenTime>DoorOpenAlertTime)
                     {
@@ -76,6 +78,7 @@ void loop()
                     {
                       LastDoorStatus=DoorIsClosed;
                       Particle.publish("DoorStatus", "Door Changed to Closed", PRIVATE);
+                      publishDoorState();
                       if (shouldNotifyOnNextClose) {
                         Particle.publish("SendOnNextO", "Garage Door Closing", PRIVATE);
                         shouldNotifyOnNextClose=false;
@@ -120,6 +123,16 @@ void MoveDoor()
         digitalWrite (relay2Pin,HIGH);
     }
 
+//For the homebridge plugin
+void publishDoorState() {
+        if (LastDoorStatus == 1 ) {
+            Particle.publish("DoorPublish", "door-opened", PRIVATE);
+        }
+        else {
+            Particle.publish("DoorPublish", "door-closed", PRIVATE);
+        }
+    }
+
 // Define Cloud API Function commands - Toggle, Open, Close or Check
 // Toggle moves door to opposite position, Open is open, Close is close, and Check returns the door's state (open or closed), Calibrate is calibrate the rangefinder
 int TellGarage (String command)
@@ -131,13 +144,13 @@ int TellGarage (String command)
             MoveDoor();
             return 1;
         }
-        else if (command=="Open")
+        else if (command=="Open" or command=="open")
         {
             if (LastDoorStatus==DoorIsClosed)
                 MoveDoor();
             return 1;
         }
-        else if (command=="Close")
+        else if (command=="Close" or command="close")
         {
             if (LastDoorStatus==DoorIsOpen)
                 MoveDoor();
