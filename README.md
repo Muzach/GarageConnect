@@ -14,7 +14,6 @@
 * Jumper Wires: http://www.amazon.com/Honbay®-120pcs-Multicolored-Female-Breadboard/dp/B017NEGTXC
 * Wifi antenna (if you need additional range): http://www.amazon.com/Wi-fi-Antenna-RP-SMA-Antennas-Cables/dp/B00A4I3AGE
 * Others:  An Enclosure for Logic board, a USB power supply, Adhesive tape, 22 AWG wire for Garage connection, enclosure for ultrasonic motion sensor, alarm/doorbell wire between the device and the sensor/relay
- 
 * I found the ultrasonic sensor to not be reliable enough, so I changed to a reed switch on the garage door.
 https://www.amazon.com/gp/product/B01BBH325A/ref=oh_aui_detailpage_o03_s01?ie=UTF8&psc=1
 
