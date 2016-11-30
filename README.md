@@ -16,8 +16,8 @@
 * Wifi antenna (if you need additional range): http://www.amazon.com/Wi-fi-Antenna-RP-SMA-Antennas-Cables/dp/B00A4I3AGE
 * Others:  An Enclosure for Logic board, a USB power supply, Adhesive tape, 22 AWG wire for Garage connection, enclosure for ultrasonic motion sensor, alarm/doorbell wire between the device and the sensor/relay
 
-#### Misc
-* Added support for the variables needed in https://www.npmjs.com/package/homebridge-photon-garagedoor.
+#### Homekit Support via HomeBridge
+* Added support for the variables needed in the Homebridge plug-in https://www.npmjs.com/package/homebridge-photon-garagedoor.
      Sample config.json config
      ```
             {
@@ -32,5 +32,11 @@
           "doorOpenCloseFunctionName": "TellGarage"
       }
      ```
+     
+* Here are some great resources for getting up and running with Homebridge on a raspberry pi that can control your garage door:
+   * https://github.com/nfarina/homebridge
+   * https://github.com/nfarina/homebridge/wiki/Running-HomeBridge-on-a-Raspberry-Pi
+   * https://www.npmjs.com/package/homebridge-photon-garagedoor
+   * https://gist.github.com/johannrichard/0ad0de1feb6adb9eb61a/
 
 
