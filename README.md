@@ -36,7 +36,43 @@
 * Here are some great resources for getting up and running with Homebridge on a raspberry pi that can control your garage door:
    * https://github.com/nfarina/homebridge
    * https://github.com/nfarina/homebridge/wiki/Running-HomeBridge-on-a-Raspberry-Pi
-   * https://www.npmjs.com/package/homebridge-photon-garagedoor
    * https://gist.github.com/johannrichard/0ad0de1feb6adb9eb61a/
+   * https://www.npmjs.com/package/homebridge-photon-garagedoor
 
+    
+   * Commands (Raspberry Basic Setup):
+   ```
+ssh pi@raspberrypi.local
+change password
+set up .ssh/authorized_keys to make future logins easier
+set date/time (sudo cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime)
+sudo apt-get update
+sudo apt-get upgrade
+sudo reboot
+sudo cp /boot/config.txt /boot/config.txt.backup
+sudo vi /boot/config.txt (set hdmi_group=1 and hdmi_mode=16, remove overscan)
+rename raspberrypi
+sudo reboot
+```
+   * Homebridge setup:
+```
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
+sudo apt-get install libavahi-compat-libdnssd-dev
+
+sudo npm install -g --unsafe-perm homebridge hap-nodejs node-gyp
+cd /usr/lib/node_modules/homebridge/
+sudo npm install --unsafe-perm bignum
+cd /usr/lib/node_modules/hap-nodejs/node_modules/mdns
+sudo node-gyp BUILDTYPE=Release rebuild
+
+sudo npm install -g homebridge-photon-garagedoor
+
+create homebridge user, set the password
+place homebridge under /etc/default and homebridge.service under /etc/systemd/system
+create /var/homebridge, set up config.json under /var/homebridge as homebridge user
+sudo systemctl daemon-reload
+sudo systemctl enable homebridge
+sudo systemctl start homebridge
+```
