@@ -2,6 +2,7 @@
 
 #### Goals:
 * Garage iOT device knowledge of the state of your garage door and push notification if you leave your garage open
+* Homekit support for garage door
 * iOS app with integration with Foscam camera to see video inside your garage
 
 ##### Fritzing wiring diagram & screenshots of the iOS experience in /documents; example pushover json in /pushover; firmware in /photon
@@ -41,7 +42,7 @@
 
     
    * Commands (Raspberry Basic Setup):
-   ```
+      ```
 ssh pi@raspberrypi.local
 change password
 set up .ssh/authorized_keys to make future logins easier
@@ -55,7 +56,7 @@ rename raspberrypi
 sudo reboot
 ```
    * Homebridge setup:
-```
+      ```
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
