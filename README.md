@@ -2,8 +2,8 @@
 
 #### Goals:
 * Garage iOT device knowledge of the state of your garage door and push notification if you leave your garage open
-* Homekit support for garage door
-* iOS app with integration with Foscam camera to see video inside your garage
+* Homekit support for garage door via Homebridge on a Raspberry Pi
+* iOS app with integration with Foscam camera to see video inside your garage (iOS code not published to github)
 
 ##### Fritzing wiring diagram & screenshots of the iOS experience in /documents; example pushover json in /pushover; firmware in /photon
 
